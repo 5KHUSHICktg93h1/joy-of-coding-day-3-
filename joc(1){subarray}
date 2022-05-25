@@ -1,0 +1,57 @@
+#include<stdio.h>
+int inde(int *a,int *count,int n,int num)
+{
+	int i=0,sum,j;
+	for(i=0;i<n;i++)
+	{
+		sum=a[i];
+		
+		if(sum==num)
+		{
+			printf("1\n");
+			printf("%d",i);
+			return i;
+		}
+		(*count)++;
+			for(j=i+1;j<n;j++)
+			{
+				if(sum==num)
+				{
+					printf("1\n");
+					return j;
+				}
+					sum=sum+a[j];
+			}
+			
+	}
+	printf("%d%d\n",i,*count);
+	printf("1\n");
+	if(i==n&&*count==n-1)
+	return -1;
+}
+int main()
+{
+	int a[50],n,num,count=-1;
+	printf("enter the number of array elements\n");
+	scanf("%d",&n);
+	printf("enter the array elements\n");
+	for(int i=0;i<n;i++)
+		scanf("%d",&a[i]);
+	printf("enter the sum\n");
+	scanf("%d",&num);
+	int ind;
+	ind=inde(a,&count,n,num);
+	printf("ind=%d\n",ind);
+	if(count!=-1&&ind!=-1)
+	{
+		for(int i=count;i<=ind-1;i++)
+		{
+			printf("%d\t",a[i]);
+		}
+	}
+	else if(ind!=-1)
+	printf("%d",a[ind+1]);
+	else 
+	printf("not possible to obtain\n");
+	return 0;
+}
