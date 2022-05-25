@@ -1,0 +1,41 @@
+#include<stdio.h>
+int main()
+{
+	int a[100][100],t[100][100],m,n,i,j;
+	printf("enter the values of m and n\n");
+	scanf("%d%d",&m,&n);
+	printf("enter the values of m and n\n");
+	for(i=0;i<m;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+			scanf("%d",&a[i][j]);
+		}
+	}
+	for(i=0;i<m;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+			printf("%d",a[i][j]);
+		}
+		printf("\n");
+	}
+	int o,p,k;
+	for(o=0,k=n-1;o<n;o++,k--)
+	{
+		for(p=0;p<m;p++)
+		{
+			t[o][p]=a[p][k];
+		}
+	}
+	printf("after rotating it by 90 degree\n");
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<m;j++)
+		{
+			printf("%d",t[i][j]);
+		}
+		printf("\n");
+	}
+	return 0;
+}
